@@ -1,4 +1,8 @@
 # Sandbox
+
+## Disable Tamper Protection
+
+
 ## Disabling Windows Defender
 
 1. Open the registry editor

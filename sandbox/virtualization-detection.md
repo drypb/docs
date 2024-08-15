@@ -55,6 +55,63 @@ Here's an example of Pafish's output:
 ````
 The example above was obtained by running pafish on SACI's sandbox
 
+
+## [al-khaser](https://github.com/LordNoteworthy/al-khaser/tree/master)
+
+al-khaser collects public malware techniques used in the wild: Virtual Machine, Emulation, Debuggers, Sandbox detection. 
+
+Below is the output of al-khaser in one of the SACI vms
+
+````
+[Thu Aug 15 11:22:36 2024] [*] Checking IsDebuggerPresent API ()  -> 0
+[Thu Aug 15 11:22:36 2024] [*] Checking PEB.BeingDebugged  -> 0
+[Thu Aug 15 11:22:36 2024] [*] Checking CheckRemoteDebuggerPresentAPI ()  -> 0
+[Thu Aug 15 11:22:36 2024] [*] Checking PEB.NtGlobalFlag  -> 0
+[Thu Aug 15 11:22:36 2024] [*] Checking ProcessHeap.Flags  -> 0
+[Thu Aug 15 11:22:36 2024] [*] Checking ProcessHeap.ForceFlags  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking NtQueryInformationProcess with ProcessDebugPort  -> 0
+[Thu Aug 1Public malware techniques used in the wild: Virtual Machine, Emulation, Debuggers, Sandbox detection. 5 11:22:37 2024] [*] Checking NtQueryInformationProcess with ProcessDebugFlags  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking NtQueryInformationProcess with ProcessDebugObject  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking NtSetInformationThread with ThreadHideFromDebugger  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking CloseHandle with an invalide handle  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking UnhandledExcepFilterTest  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking OutputDebugString  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking Hardware Breakpoints  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking Software Breakpoints  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking Interupt 0x2d  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking Interupt 1  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking Memory Breakpoints PAGE GUARD:  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking If Parent Process is explorer.exe:  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking SeDebugPrivilege :  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking NtQueryObject with ObjectTypeInformation :  -> 0
+[Thu Aug 15 11:22:37 2024] [*] Checking NtQueryObject with ObjectAllTypesInformation :  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking NtYieldExecution :  -> 1
+[Thu Aug 15 11:22:38 2024] [*] Checking CloseHandle protected handle trick :  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking if process loaded modules contains: sbiedll.dll  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking if process loaded modules contains: dbghelp.dll  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking if process loaded modules contains: api_log.dll  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking if process loaded modules contains: dir_watch.dll  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking if process loaded modules contains: pstorec.dll  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking if process loaded modules contains: vmcheck.dll  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking if process loaded modules contains: wpespy.dll  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking Number of processors in machine:  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking Interupt Descriptor Table location:  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking Local Descriptor Table location:  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking Global Descriptor Table location:  -> 0
+[Thu Aug 15 11:22:38 2024] [*] Checking Global Descriptor Table location:  -> 0
+[Thu Aug 15 11:22:40 2024] [*] Checking Number of cores in machine using WMI:  -> 0
+[Thu Aug 15 11:22:40 2024] [*] Checking hard disk size using WMI:  -> 1
+[Thu Aug 15 11:22:40 2024] [*] Checking hard disk size using DeviceIoControl:  -> 1
+[Thu Aug 15 11:22:40 2024] [*] Checking SetupDi_diskdrive:  -> 1
+[Thu Aug 15 11:22:45 2024] [*] Checking mouse movement:  -> 1
+[Thu Aug 15 11:22:45 2024] [*] Checking memory space using GlobalMemoryStatusEx:  -> 0
+[Thu Aug 15 11:22:45 2024] [*] Checking disk size using GetDiskFreeSpaceEx:  -> 1
+[Thu Aug 15 11:22:45 2024] [*] Checking if CPU hypervisor field is set using cpuid(0x1) -> 1
+[Thu Aug 15 11:22:45 2024] [*] Checking hypervisor vendor using cpuid(0x40000000) -> 1
+[Thu Aug 15 11:22:45 2024] [*] Checking RDTSC Locky trick:  -> 1
+[Thu Aug 15 11:22:45 2024] [*] Checking RDTSC which force a VM Exit (cpuid):  -> 0
+````
+
 ## Detection Techniques and How to bypass them
 
 Let's break down the output from pafish and figure out how each one was traced and how we can make them untraceable
