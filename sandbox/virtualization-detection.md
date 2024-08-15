@@ -155,6 +155,20 @@ Here an example of how one could implement this. credit to [al-kasher](https://g
 
 Now comes the question on how to hide this delay from the malware. So it's possible to achieve this by patching kvm, so it will create fake timestamps that will take into account the time spent outside of the vm. This [patch](https://gitlab.com/DonnerPartyOf1/kvm-hidden/-/blob/master/rdtscv2.patch) implements exactly this.
 
+
+First we make some changes to the `struct kvm_cpu`:
+
+```
++    u64 last_exit_start;
++    u64 total_exit_time;
++    bool absorb_exit_time;
+
+```
+
+Adding this line will allow for us to fake timestamps, so the malware wont be able to perceive the time difference
+
+
+
 Here the main function that will allow this: 
 
 ```
