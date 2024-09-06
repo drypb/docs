@@ -5,11 +5,13 @@
 
 ## Disabling Windows Defender
 
+1. Open Windows Security
+1. Disable `Real-time protection` and `Tamper protection`
 1. Open the registry editor
-2. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender`
-3. Create a new `DWORD (32-bit) Value` key called `DisableAntiSpyware`
-4. Set the value to `1`
-5. Restart the machine.
+1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender`
+1. Create a new `DWORD (32-bit) Value` key called `DisableAntiSpyware`
+1. Set the value to `1`
+1. Restart the machine.
 
 ## References
 
